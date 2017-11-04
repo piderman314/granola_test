@@ -2,12 +2,12 @@ cmake_minimum_required(VERSION 3.0)
 
 project(granola)
 
-if (${MSVC})
+if (CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	add_compile_options(/utf-8 /std:c++17)
-else()
-	set(CMAKE_CXX_STANDARD 17)
-	set(CMAKE_CXX_STANDARD_REQUIRED ON)
-	set(CMAKE_CXX_EXTENSIONS OFF)
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+	add_compile_options(-std=c++1z)
+elseif (CMAKE_CXX_COMPILER_ID MATCHES "GNU")
+	add_compile_options(-std=c++1z)
 endif()
 
 file(GLOB granola_SRC "include/*.h" "src/*.cpp" "src/*.c")
