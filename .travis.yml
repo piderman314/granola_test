@@ -18,4 +18,4 @@ before_install:
 script:
   - cmake -G "Unix Makefiles" -Dtest=ON
   - make
-  - ctest
+  - ctest -V
