@@ -9,7 +9,7 @@ add_library(granola ${granola_SRC})
 target_include_directories(granola PUBLIC include)
 
 if (test)
-	find_package(gtest REQUIRED)
+	find_package(GTest REQUIRED)
 
 	enable_testing()
 
