@@ -4,6 +4,10 @@ project(granola)
 
 if (${MSVC})
 	add_compile_options(/utf-8 /std:c++17)
+else()
+	set(CMAKE_CXX_STANDARD 17)
+	set(CMAKE_CXX_STANDARD_REQUIRED ON)
+	set(CMAKE_CXX_EXTENSIONS OFF)
 endif()
 
 file(GLOB granola_SRC "include/*.h" "src/*.cpp" "src/*.c")
