@@ -2,6 +2,9 @@ language: cpp
 
 compiler: clang
 
+install:
+  - sudo apt-get install libgtest-dev
+
 script:
   - cmake -G "Unix Makefiles" -Dtest=ON
   - make
