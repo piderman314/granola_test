@@ -4,6 +4,10 @@ compiler: clang
 
 install:
   - sudo apt-get install libgtest libgtest-dev
+  - cd /usr/src/gtest
+  - sudo cmake
+  - sudo make
+  - sudo make install
 
 script:
   - cmake -G "Unix Makefiles" -Dtest=ON
