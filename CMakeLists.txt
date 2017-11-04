@@ -2,6 +2,10 @@ cmake_minimum_required(VERSION 3.0)
 
 project(granola)
 
+if (${MSVC})
+	add_compile_options(/utf-8 /std:c++17)
+endif()
+
 file(GLOB granola_SRC "include/*.h" "src/*.cpp" "src/*.c")
 
 add_library(granola ${granola_SRC})
