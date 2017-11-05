@@ -26,7 +26,7 @@ if (test)
 	ExternalProject_Add(
 		googletest
 		GIT_REPOSITORY      https://github.com/google/googletest.git
-		GIT_TAG             release-1.8.0
+		GIT_TAG             release-1.7.0
 		CMAKE_ARGS          ${CATCH_CMAKE_ARGS}
 		PREFIX              ${CMAKE_BINARY_DIR}/external/googletest/prefix
 		TMP_DIR             ${CMAKE_BINARY_DIR}/external/googletest/tmp
