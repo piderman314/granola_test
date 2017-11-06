@@ -31,7 +31,7 @@ before_install:
 script:
   - mkdir build
   - cd build
-  - cmake -Dtest=ON ..
+  - cmake ${TEST} ..
   - make
   - ctest -V
 
