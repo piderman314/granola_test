@@ -1,0 +1,24 @@
+matrix:
+  include:
+    - os: Visual Studio 2017
+      env:
+        - TEST="VS 2017 without tests"
+      script:
+        - mkdir build
+        - cd build
+        - cmake ..
+        - make
+    - os: Visual Studio 2017
+      env:
+        - TEST="VS 2017 with tests"
+      script:
+        - mkdir build
+        - cd build
+        - cmake -DCMAKE_CXX_COMPILER="g++-7" -Dtest=ON ..
+        - make
+        - ctest -V
+
+language: cpp
+
+notifications:
+  email: false
