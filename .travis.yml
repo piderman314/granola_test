@@ -1,7 +1,3 @@
-env:
-  - TEST="-Dtest=ON"
-  - TEST="-Dtest=OFF"
-
 matrix:
   include:
     - os: linux
@@ -31,7 +27,7 @@ before_install:
 script:
   - mkdir build
   - cd build
-  - cmake ${TEST} ..
+  - cmake -Dtest=ON ..
   - make
   - ctest -V
 
