@@ -25,22 +25,23 @@ if (test)
 
 	ExternalProject_Add(
 		doctest
-		GIT_REPOSITORY      https://github.com/onqtam/doctest.git
-		GIT_TAG             1.2.5
-		CMAKE_ARGS          ${DOCTEST_CMAKE_ARGS}
-		PREFIX              ${CMAKE_BINARY_DIR}/external/doctest/prefix
-		TMP_DIR             ${CMAKE_BINARY_DIR}/external/doctest/tmp
-		STAMP_DIR           ${CMAKE_BINARY_DIR}/external/doctest/stamp
-		DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/doctest/download
-		SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/doctest/src
-		BINARY_DIR          ${CMAKE_BINARY_DIR}/external/doctest/build
+		PREFIX ${CMAKE_BINARY_DIR}/doctest
+		GIT_REPOSITORY https://github.com/onqtam/doctest.git
+		GIT_TAG 1.2.5
+		TIMEOUT 10
+		CONFIGURE_COMMAND ""
+		BUILD_COMMAND ""
+		INSTALL_COMMAND ""
+		LOG_DOWNLOAD ON
 	)
+
+	ExternalProject_Get_Property(doctest source_dir)
+	set(DOCTEST_INCLUDE_DIR ${source_dir}/doctest CACHE INTERNAL "Path to include folder for doctest")
 
 	enable_testing()
 
 	add_executable(granola_test "test/granola_test.cpp")
-	add_dependencies(granola_test doctest)
-	target_include_directories(granola_test PRIVATE build/include)
+	target_include_directories(granola_test PRIVATE ${DOCTEST_INCLUDE_DIR})
 
 	add_test(granola_test granola_test)
 endif()
