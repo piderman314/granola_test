@@ -27,7 +27,6 @@ if (test)
 		catch
 		GIT_REPOSITORY      https://github.com/Bareflank/catch.git
 		GIT_TAG             v1.2
-		GIT_SHALLOW         1
 		CMAKE_ARGS          ${CATCH_CMAKE_ARGS}
 		PREFIX              ${CMAKE_BINARY_DIR}/external/catch
 		TMP_DIR             ${CMAKE_BINARY_DIR}/external/catch/tmp
