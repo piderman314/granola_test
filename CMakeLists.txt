@@ -19,29 +19,32 @@ target_include_directories(granola PUBLIC include)
 if (test)
 	include(ExternalProject)
 	
-	list(APPEND DOCTEST_CMAKE_ARGS
+	list(APPEND CATCH_CMAKE_ARGS
 		"-DCMAKE_INSTALL_PREFIX=${CMAKE_BINARY_DIR}"
 	)
 
 	ExternalProject_Add(
-		doctest
-		PREFIX ${CMAKE_BINARY_DIR}/doctest
-		GIT_REPOSITORY https://github.com/onqtam/doctest.git
-		GIT_TAG 1.2.5
-		TIMEOUT 10
-		CONFIGURE_COMMAND ""
-		BUILD_COMMAND ""
-		INSTALL_COMMAND ""
-		LOG_DOWNLOAD ON
+		catch
+		GIT_REPOSITORY      https://github.com/Bareflank/catch.git
+		GIT_TAG             v1.2
+		GIT_SHALLOW         1
+		CMAKE_ARGS          ${CATCH_CMAKE_ARGS}
+		PREFIX              ${CMAKE_BINARY_DIR}/external/catch
+		TMP_DIR             ${CMAKE_BINARY_DIR}/external/catch/tmp
+		STAMP_DIR           ${CMAKE_BINARY_DIR}/external/catch/stamp
+		DOWNLOAD_DIR        ${CMAKE_BINARY_DIR}/external/catch/download
+		SOURCE_DIR          ${CMAKE_BINARY_DIR}/external/catch/src
+		BINARY_DIR          ${CMAKE_BINARY_DIR}/external/catch/build
+		BUILD_COMMAND		""
 	)
 
-	ExternalProject_Get_Property(doctest source_dir)
-	set(DOCTEST_INCLUDE_DIR ${source_dir}/doctest CACHE INTERNAL "Path to include folder for doctest")
+	ExternalProject_Get_Property(catch source_dir)
+	set(CATCH_INCLUDE_DIR ${source_dir}/include CACHE INTERNAL "Path to include folder for catch")
 
 	enable_testing()
 
 	add_executable(granola_test "test/granola_test.cpp")
-	target_include_directories(granola_test PRIVATE ${DOCTEST_INCLUDE_DIR})
+	target_include_directories(granola_test PRIVATE ${CATCH_INCLUDE_DIR})
 
 	add_test(granola_test granola_test)
 endif()

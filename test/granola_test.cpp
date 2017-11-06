@@ -1,5 +1,5 @@
-#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#include <doctest.h>
+#define CATCH_CONFIG_MAIN
+#include <catch.hpp>
 
 int factorial(int number) { return number <= 1 ? number : factorial(number - 1) * number; }
 
