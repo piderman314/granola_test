@@ -26,7 +26,7 @@ if (test)
 	ExternalProject_Add(
 		doctest
 		GIT_REPOSITORY      https://github.com/onqtam/doctest.git
-		GIT_TAG             1.2.6
+		GIT_TAG             1.2.5
 		CMAKE_ARGS          ${DOCTEST_CMAKE_ARGS}
 		PREFIX              ${CMAKE_BINARY_DIR}/external/doctest/prefix
 		TMP_DIR             ${CMAKE_BINARY_DIR}/external/doctest/tmp
