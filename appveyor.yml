@@ -1,22 +1,29 @@
+image: Visual Studio 2017
+
+platform:
+  - x64
+
+configuration:
+  - Release
+  - Debug
+
 matrix:
   include:
-    - os: Visual Studio 2017
-      env:
+    - env:
         - TEST="VS 2017 without tests"
-      script:
+      before_build:
         - mkdir build
         - cd build
-        - cmake ..
-        - make
-    - os: Visual Studio 2017
-      env:
+        - cmake -G "Visual Studio 15 2017 Win64" .
+    - env:
         - TEST="VS 2017 with tests"
-      script:
+      before_build:
         - mkdir build
         - cd build
-        - cmake -DCMAKE_CXX_COMPILER="g++-7" -Dtest=ON ..
-        - make
-        - ctest -V
+        - cmake -G "Visual Studio 15 2017 Win64" .
+
+build:
+  project: ALL_BUILD.sln
 
 language: cpp
 
