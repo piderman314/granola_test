@@ -8,9 +8,7 @@ configuration:
 
 environment:
   matrix:
-    - project_name: ALL_BUILD.vcxproj
-      test: -Dtest=OFF
-    - project_name: RUN_TESTS.vcxproj
+    - project_name: ALL_BUILD.vcxproj RUN_TESTS.vcxproj
       test: -Dtest=ON
 
 before_build:
