@@ -8,7 +8,9 @@ configuration:
 
 environment:
   matrix:
-    - project_name: ALL_BUILD.vcxproj RUN_TESTS.vcxproj
+    - build_command: msbuild ALL_BUILD.vcxproj
+      test: -Dtest=OFF
+    - build_command: msbuild ALL_BUILD.vcxproj && msbuild RUN_TESTS.vcxproj
       test: -Dtest=ON
 
 before_build:
@@ -17,5 +19,4 @@ before_build:
   - cmake -G "Visual Studio 15 2017 Win64" %test% ..
 
 build_script:
-  - msbuild ALL_BUILD.vcxproj
-  - msbuild RUN_TESTS.vcxproj
+  - %build_command%
