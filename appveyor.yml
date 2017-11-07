@@ -6,6 +6,9 @@ platform:
 configuration:
   - Debug
 
+matrix:
+  fast_finish: true
+
 environment:
   matrix:
     - build_command: msbuild ALL_BUILD.vcxproj
