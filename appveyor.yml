@@ -8,19 +8,18 @@ configuration:
   - Debug
 
 matrix:
-  include:
-    - env:
-        - TEST="VS 2017 without tests"
-      before_build:
-        - mkdir build
-        - cd build
-        - cmake -G "Visual Studio 15 2017 Win64" .
-    - env:
-        - TEST="VS 2017 with tests"
-      before_build:
-        - mkdir build
-        - cd build
-        - cmake -G "Visual Studio 15 2017 Win64" .
+  - env:
+      - TEST="VS 2017 without tests"
+    before_build:
+      - mkdir build
+      - cd build
+      - cmake -G "Visual Studio 15 2017 Win64" .
+  - env:
+      - TEST="VS 2017 with tests"
+    before_build:
+      - mkdir build
+      - cd build
+      - cmake -G "Visual Studio 15 2017 Win64" .
 
 build:
   project: ALL_BUILD.sln
