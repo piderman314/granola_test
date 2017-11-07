@@ -10,7 +10,7 @@ environment:
   matrix:
     - build_command: msbuild ALL_BUILD.vcxproj
       test: -Dtest=OFF
-    - build_command: msbuild ALL_BUILD.vcxproj && msbuild RUN_TESTS.vcxproj
+    - build_command: msbuild ALL_BUILD.vcxproj && ctest -V
       test: -Dtest=ON
 
 before_build:
