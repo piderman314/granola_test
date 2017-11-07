@@ -14,8 +14,3 @@ before_build:
 
 build:
   project: ALL_BUILD.sln
-
-language: cpp
-
-notifications:
-  email: false
