@@ -13,4 +13,4 @@ before_build:
   - cmake -G "Visual Studio 15 2017 Win64" -Dtest=ON ..
 
 build:
-  project: ALL_BUILD.sln
+  project: ALL_BUILD.vcxproj
