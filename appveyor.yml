@@ -19,4 +19,4 @@ before_build:
   - cmake -G "Visual Studio 15 2017 Win64" %test% ..
 
 build_script:
-  - %build_command%
+  - call %build_command%
