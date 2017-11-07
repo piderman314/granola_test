@@ -11,8 +11,6 @@ before_build:
   - mkdir build
   - cd build
   - cmake -G "Visual Studio 15 2017 Win64" -Dtest=ON ..
-  - dir
-  - dir build
 
 build:
-  project: ALL_BUILD.vcxproj
+  project: build\ALL_BUILD.vcxproj
