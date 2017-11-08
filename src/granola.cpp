@@ -2,7 +2,6 @@
 #include <doctest.h>
 
 #include <memory>
-#include <string>
 
 test q() {
 	auto s = test{ 1, 2 };
@@ -10,9 +9,9 @@ test q() {
 }
 
 void test_f() {
-	const auto[a, b] = q();
+	auto[a, b] = q();
 
-	auto s = std::make_unique<std::string>("test 1 2 3");
+	auto s = std::make_unique<int>(1);
 }
 
 int factorial(int number) { return number <= 1 ? number : factorial(number - 1) * number; }
