@@ -10,6 +10,7 @@ matrix:
           packages:
             - clang-5.0
             - libc++-dev
+            - libc++abi-dev
       env:
         - TEST="Clang 5 without tests"
       script:
@@ -40,6 +41,7 @@ matrix:
           packages:
             - clang-5.0
             - libc++-dev
+            - libc++abi-dev
       env:
         - TEST="Clang 5 with tests"
       script:
